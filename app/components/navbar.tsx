@@ -1,0 +1,136 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const navLinks = [
+  { href: "#home", label: "Home" },
+  { href: "#products", label: "Products" },
+  { href: "#capabilities", label: "Capabilities" },
+  { href: "#about", label: "About Us" },
+  { href: "#certifications", label: "Certifications" },
+  { href: "#contact", label: "Contact" },
+] as const;
+
+export function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur-sm">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="relative h-10 w-28 shrink-0 sm:h-11 sm:w-32 md:w-36"
+          onClick={closeMenu}
+        >
+          <Image
+            src="/images/logo-simplified2.png"
+            alt="Velora Pack"
+            fill
+            className="object-contain object-left"
+            sizes="(max-width: 640px) 112px, 144px"
+            priority
+          />
+        </Link>
+
+        <ul className="hidden items-center gap-5 xl:gap-7 lg:flex">
+          {navLinks.map(({ href, label }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className="whitespace-nowrap text-sm font-medium text-text/70 transition-colors hover:text-velora-navy"
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            href="#quotation"
+            className="hidden rounded-md bg-velora-navy px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-velora-navy/90 md:inline-flex"
+          >
+            Request Quotation
+          </Link>
+          <button
+            type="button"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-text/70 lg:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
+      </nav>
+
+      <div
+        id="mobile-nav"
+        className={`fixed inset-0 top-16 z-40 lg:hidden sm:top-[72px] ${menuOpen ? "visible" : "invisible"}`}
+        aria-hidden={!menuOpen}
+      >
+        <button
+          type="button"
+          className={`absolute inset-0 bg-black/40 transition-opacity ${menuOpen ? "opacity-100" : "opacity-0"}`}
+          aria-label="Close menu"
+          onClick={closeMenu}
+        />
+        <div
+          className={`absolute right-0 top-0 flex h-full w-full max-w-sm flex-col border-l border-border bg-white p-6 shadow-xl transition-transform duration-200 ease-out sm:max-w-xs ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <ul className="flex flex-col gap-1">
+            {navLinks.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="block rounded-md px-3 py-3 text-base font-medium text-text/80 transition-colors hover:bg-background hover:text-velora-navy"
+                  onClick={closeMenu}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 flex flex-col gap-3 border-t border-border pt-6">
+            <Link
+              href="#quotation"
+              className="inline-flex h-11 items-center justify-center rounded-md bg-velora-navy text-sm font-semibold text-white"
+              onClick={closeMenu}
+            >
+              Request Quotation
+            </Link>
+            <Link
+              href="#contact"
+              className="inline-flex h-11 items-center justify-center rounded-md border border-border text-sm font-semibold text-velora-navy"
+              onClick={closeMenu}
+            >
+              Contact Sales
+            </Link>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
