@@ -9,11 +9,11 @@ export function Hero() {
         <div className="grid items-center gap-8 py-10 sm:py-12 lg:grid-cols-2 lg:gap-12 lg:py-16 xl:py-20">
           <div className="relative z-10 min-w-0">
             <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-velora-blue sm:text-xs sm:tracking-[0.2em]">
-              Premium OPP Packaging Solutions
+              Premium Plastic Packaging Solutions
             </p>
 
             <h1 className="mt-3 text-3xl font-bold leading-[1.15] tracking-tight text-velora-navy sm:mt-4 sm:text-4xl md:text-[2.75rem] lg:text-5xl">
-              Premium OPP Packaging Solutions for{" "}
+              Premium Plastic Packaging Solutions for{" "}
               <span className="text-velora-blue">Modern Brands</span>
             </h1>
 
@@ -55,8 +55,9 @@ export function Hero() {
                 </span>
               </div>
               <p className="text-sm font-medium text-text/70">
-                Trusted by <span className="font-semibold text-velora-navy">500+</span> Brands
-                Nationwide
+                Trusted by{" "}
+                <span className="font-semibold text-velora-navy">500+</span>{" "}
+                Brands Nationwide
               </p>
             </div>
           </div>
@@ -69,7 +70,7 @@ export function Hero() {
                   "url('images/banner1.png'), linear-gradient(135deg, #e8f2fc 0%, #d4e8f7 50%, #c5ddf0 100%)",
               }}
               role="img"
-              aria-label="OPP film production line"
+              aria-label="Plastic film production line"
             />
             <div
               className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent lg:bg-gradient-to-l lg:from-transparent lg:via-transparent lg:to-background/20"

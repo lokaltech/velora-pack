@@ -23,8 +23,8 @@ export function CtaSection() {
               Ready to Elevate Your Packaging?
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-white/75 sm:text-base">
-              Get a tailored quotation for OPP polybags, printed film, and custom
-              sizes—backed by ISO-certified production.
+              Get a tailored quotation for OPP polybags, printed film, and
+              custom sizes—backed by ISO-certified production.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export function CtaSection() {
               <span aria-hidden>→</span>
             </Link>
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6281284849822"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-12 w-full items-center justify-center rounded-md border border-white/40 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:w-auto"
@@ -49,7 +49,9 @@ export function CtaSection() {
           <div className="flex justify-center lg:col-span-1 lg:justify-end">
             <div className="relative h-32 w-40 overflow-hidden rounded-xl border border-white/20 bg-gradient-to-br from-film-blue/30 to-white/10 shadow-xl sm:h-40 sm:w-48">
               <div className="flex h-full flex-col items-center justify-center p-4 text-center">
-                <p className="text-xl font-extrabold tracking-widest text-white/90 sm:text-2xl">VELORA</p>
+                <p className="text-xl font-extrabold tracking-widest text-white/90 sm:text-2xl">
+                  VELORA
+                </p>
                 <p className="mt-1 text-[10px] uppercase tracking-wider text-white/50">
                   Premium OPP Bag
                 </p>

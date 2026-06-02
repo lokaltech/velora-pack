@@ -1,13 +1,13 @@
-import { CapabilitiesSection } from "./components/capabilities-section";
-import { CertificationsSection } from "./components/certifications-section";
-import { CtaSection } from "./components/cta-section";
+import { CapabilitiesSection } from "./components/sections/capabilities-section";
+import { CertificationsSection } from "./components/sections/certifications-section";
+import { CtaSection } from "./components/sections/cta-section";
 import { Footer } from "./components/footer";
-import { Hero } from "./components/hero";
-import { IndustriesSection } from "./components/industries-section";
-import { MetricsBar } from "./components/metrics-bar";
+import { Hero } from "./components/sections/hero";
+import { IndustriesSection } from "./components/sections/industries-section";
+import { MetricsBar } from "./components/sections/metrics-bar";
 import { Navbar } from "./components/navbar";
-import { ProcessSection } from "./components/process-section";
-import { ProductsSection } from "./components/products-section";
+import { ProcessSection } from "./components/sections/process-section";
+import { ProductsSection } from "./components/sections/products-section";
 import { WhatsAppFab } from "./components/whatsapp-fab";
 
 export default function Home() {

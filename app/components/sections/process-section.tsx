@@ -1,4 +1,4 @@
-import { SectionTag } from "./section-tag";
+import { SectionTag } from "../section-tag";
 
 const steps = [
   {
@@ -8,17 +8,20 @@ const steps = [
   },
   {
     title: "Specification",
-    description: "Confirm material, size, thickness, printing, and delivery timeline.",
+    description:
+      "Confirm material, size, thickness, printing, and delivery timeline.",
     icon: "M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z",
   },
   {
     title: "Production",
-    description: "Manufacture with in-line QC on extrusion and converting lines.",
+    description:
+      "Manufacture with in-line QC on extrusion and converting lines.",
     icon: "M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.413m4.684-2.652 1.15-.413m0 0 1.41-.513M12 3v1.5m0 16.5V21",
   },
   {
     title: "Quality Control",
-    description: "Inspect clarity, seal strength, dimensions, and print accuracy.",
+    description:
+      "Inspect clarity, seal strength, dimensions, and print accuracy.",
     icon: "M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z",
   },
   {
@@ -45,8 +48,19 @@ export function ProcessSection() {
             <li key={title} className="relative flex gap-4 pb-8 last:pb-0">
               <div className="flex flex-col items-center">
                 <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-film-blue bg-white shadow-sm">
-                  <svg className="h-6 w-6 text-velora-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-                    <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
+                  <svg
+                    className="h-6 w-6 text-velora-blue"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    aria-hidden
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={icon}
+                    />
                   </svg>
                 </div>
                 {index < steps.length - 1 && (
@@ -54,9 +68,13 @@ export function ProcessSection() {
                 )}
               </div>
               <div className="min-w-0 pb-2 pt-1">
-                <span className="text-xs font-bold text-velora-blue">0{index + 1}</span>
+                <span className="text-xs font-bold text-velora-blue">
+                  0{index + 1}
+                </span>
                 <h3 className="mt-0.5 font-bold text-velora-navy">{title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-text/60">{description}</p>
+                <p className="mt-1 text-sm leading-relaxed text-text/60">
+                  {description}
+                </p>
               </div>
             </li>
           ))}
@@ -64,18 +82,39 @@ export function ProcessSection() {
 
         {/* Desktop: horizontal steps */}
         <div className="relative mt-14 hidden lg:block">
-          <div className="absolute left-0 right-0 top-8 h-px bg-border" aria-hidden />
+          <div
+            className="absolute left-0 right-0 top-8 h-px bg-border"
+            aria-hidden
+          />
           <ol className="grid grid-cols-5 gap-6">
             {steps.map(({ title, description, icon }, index) => (
-              <li key={title} className="relative flex flex-col items-center text-center">
+              <li
+                key={title}
+                className="relative flex flex-col items-center text-center"
+              >
                 <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-film-blue bg-white shadow-sm">
-                  <svg className="h-7 w-7 text-velora-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-                    <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
+                  <svg
+                    className="h-7 w-7 text-velora-blue"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    aria-hidden
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={icon}
+                    />
                   </svg>
                 </div>
-                <span className="mt-3 text-xs font-bold text-velora-blue">0{index + 1}</span>
+                <span className="mt-3 text-xs font-bold text-velora-blue">
+                  0{index + 1}
+                </span>
                 <h3 className="mt-1 font-bold text-velora-navy">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-text/60">{description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-text/60">
+                  {description}
+                </p>
               </li>
             ))}
           </ol>

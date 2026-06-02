@@ -1,4 +1,4 @@
-import { SectionTag } from "./section-tag";
+import { SectionTag } from "../section-tag";
 
 const certifications = [
   "ISO 9001",
@@ -11,7 +11,10 @@ const certifications = [
 
 export function CertificationsSection() {
   return (
-    <section id="certifications" className="border-t border-border bg-white py-12 sm:py-16 lg:py-20">
+    <section
+      id="certifications"
+      className="border-t border-border bg-white py-12 sm:py-16 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <SectionTag>Certifications</SectionTag>
         <h2 className="mt-2 text-2xl font-bold text-velora-navy sm:text-3xl lg:text-4xl">

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowLink } from "./arrow-link";
-import { SectionTag } from "./section-tag";
+import { ArrowLink } from "../arrow-link";
+import { SectionTag } from "../section-tag";
 import Image from "next/image";
 
 const products = [
