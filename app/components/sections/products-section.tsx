@@ -9,32 +9,35 @@ const products = [
     description:
       "Crystal-clear bags for apparel, textiles, and retail packaging with reliable seal strength.",
     tone: "from-sky-100 to-blue-50",
-    productImage: "/images/banner1.png",
+    productImage: "/images/product-opp-polybag.png",
   },
   {
     title: "Printed OPP",
     description:
       "Custom logo and brand printing for professional product presentation at scale.",
     tone: "from-indigo-100 to-violet-50",
-    productImage: "/images/banner2.png",
+    productImage: "/images/product-batik.png",
   },
   {
     title: "OPP Roll Film",
     description:
       "High-clarity roll stock for automatic packing lines and garment factories.",
     tone: "from-cyan-100 to-teal-50",
+    productImage: "/images/product-opp-rollfilm.png",
   },
   {
     title: "Perforated Bags",
     description:
       "Easy-tear perforation for efficient packing workflows and consumer convenience.",
     tone: "from-blue-100 to-slate-50",
+    productImage: "/images/product-perforated-bags.png",
   },
   {
     title: "Custom Sizes",
     description:
       "Tailored dimensions and thickness to match your product specs and machinery.",
     tone: "from-[#B8D9FF] to-sky-50",
+    productImage: "/images/product-frosted2.png",
   },
 ] as const;
 
