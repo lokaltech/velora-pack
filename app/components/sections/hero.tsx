@@ -5,7 +5,7 @@ const avatars = ["A", "B", "C", "D", "E"];
 export function Hero() {
   return (
     <section id="home" className="overflow-hidden bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12 lg:mt-16">
         <div className="grid items-center gap-8 py-10 sm:py-12 lg:grid-cols-2 lg:gap-12 lg:py-16 xl:py-20">
           <div className="relative z-10 min-w-0">
             <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-velora-blue sm:text-xs sm:tracking-[0.2em]">
