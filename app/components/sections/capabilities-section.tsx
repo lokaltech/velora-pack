@@ -1,5 +1,8 @@
+"use client";
 import Link from "next/link";
 import { SectionTag } from "../section-tag";
+import Image from "next/image";
+import { motion } from "motion/react";
 
 const stats = [
   {
@@ -32,7 +35,13 @@ export function CapabilitiesSection() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-10 lg:grid lg:grid-cols-12 lg:items-start lg:gap-8">
-          <div className="min-w-0 lg:col-span-4">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="min-w-0 lg:col-span-4"
+          >
             <SectionTag>Our Capabilities</SectionTag>
             <h2 className="mt-2 text-2xl font-bold leading-tight text-velora-navy sm:text-3xl lg:text-4xl">
               High Capacity.
@@ -50,36 +59,97 @@ export function CapabilitiesSection() {
               Learn More About Us
               <span aria-hidden>→</span>
             </Link>
-          </div>
+          </motion.div>
 
           <div className="lg:col-span-4">
-            <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-slate-200 via-slate-100 to-film-blue/50 shadow-md sm:aspect-square lg:aspect-square">
-              <div className="flex h-full flex-col items-center justify-center p-6 text-center sm:p-8">
-                <svg
-                  className="h-12 w-12 text-velora-blue/60 sm:h-14 sm:w-14"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border shadow-md sm:aspect-square lg:aspect-square"
+            >
+              {/* Image */}
+              <motion.div
+                className="absolute inset-0"
+                whileHover={{ scale: 1.08 }}
+                transition={{
+                  duration: 0.7,
+                  ease: "easeOut",
+                }}
+              >
+                <Image
+                  src="/images/banner2.png"
+                  alt="Velora Pack Manufacturing Facility"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  priority
+                />
+              </motion.div>
+
+              {/* Overlay */}
+              <motion.div
+                className="absolute inset-0 bg-velora-navy/45"
+                whileHover={{
+                  opacity: 0.25,
+                }}
+                transition={{
+                  duration: 0.5,
+                }}
+              />
+
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                <motion.svg
+                  className="h-20 w-20 text-white/90"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={1}
                   aria-hidden
+                  animate={{
+                    y: [0, -4, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
                   />
-                </svg>
-                <p className="mt-4 text-sm font-medium text-text/50">
-                  Factory machinery photo
+                </motion.svg>
+
+                <p className="mt-4 text-xl font-medium text-white/80">
+                  Factory Machinery
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           <div className="grid grid-cols-1 gap-3 min-[480px]:grid-cols-2 lg:col-span-4 lg:flex lg:flex-col lg:gap-4">
             {stats.map(({ value, label, icon }) => (
-              <div
+              <motion.div
                 key={label}
+                initial={{ opacity: 0, x: -20 }}
+                viewport={{ once: true }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    duration: 0.6,
+                  },
+                }}
+                whileHover={{
+                  y: -4,
+                }}
+                transition={{
+                  duration: 0.2,
+                }}
                 className="flex min-w-0 items-center gap-3 rounded-xl border border-border bg-background p-4 sm:gap-4"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-film-blue/50 text-velora-blue sm:h-11 sm:w-11">
@@ -104,7 +174,7 @@ export function CapabilitiesSection() {
                   </p>
                   <p className="text-xs text-text/60 sm:text-sm">{label}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

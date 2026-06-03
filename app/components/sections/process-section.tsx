@@ -1,5 +1,6 @@
+"use client";
 import { SectionTag } from "../section-tag";
-
+import { motion } from "motion/react";
 const steps = [
   {
     title: "Consultation",
@@ -35,19 +36,46 @@ export function ProcessSection() {
   return (
     <section className="py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
           <SectionTag>Our Process</SectionTag>
           <h2 className="mt-2 text-2xl font-bold text-velora-navy sm:text-3xl lg:text-4xl">
             From Concept to Delivery
           </h2>
-        </div>
+        </motion.div>
 
         {/* Mobile / tablet: vertical timeline */}
         <ol className="relative mt-10 space-y-0 lg:hidden">
           {steps.map(({ title, description, icon }, index) => (
-            <li key={title} className="relative flex gap-4 pb-8 last:pb-0">
+            <motion.li
+              key={title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+              }}
+              whileHover={{
+                y: -6,
+              }}
+              className="relative flex gap-4 pb-8 last:pb-0"
+            >
               <div className="flex flex-col items-center">
-                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-film-blue bg-white shadow-sm">
+                <motion.div
+                  whileHover={{
+                    scale: 1.08,
+                  }}
+                  transition={{
+                    duration: 0.2,
+                  }}
+                  className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-film-blue bg-white shadow-sm"
+                >
                   <svg
                     className="h-6 w-6 text-velora-blue"
                     fill="none"
@@ -62,7 +90,7 @@ export function ProcessSection() {
                       d={icon}
                     />
                   </svg>
-                </div>
+                </motion.div>
                 {index < steps.length - 1 && (
                   <div className="mt-2 w-px flex-1 bg-border" aria-hidden />
                 )}
@@ -76,23 +104,48 @@ export function ProcessSection() {
                   {description}
                 </p>
               </div>
-            </li>
+            </motion.li>
           ))}
         </ol>
 
         {/* Desktop: horizontal steps */}
         <div className="relative mt-14 hidden lg:block">
-          <div
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1.2,
+              ease: "easeOut",
+            }}
             className="absolute left-0 right-0 top-8 h-px bg-border"
             aria-hidden
           />
           <ol className="grid grid-cols-5 gap-6">
             {steps.map(({ title, description, icon }, index) => (
-              <li
+              <motion.li
                 key={title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
+                whileHover={{
+                  y: -6,
+                }}
                 className="relative flex flex-col items-center text-center"
               >
-                <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-film-blue bg-white shadow-sm">
+                <motion.div
+                  whileHover={{
+                    scale: 1.08,
+                  }}
+                  transition={{
+                    duration: 0.2,
+                  }}
+                  className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border-2 border-film-blue bg-white shadow-sm"
+                >
                   <svg
                     className="h-7 w-7 text-velora-blue"
                     fill="none"
@@ -107,7 +160,7 @@ export function ProcessSection() {
                       d={icon}
                     />
                   </svg>
-                </div>
+                </motion.div>
                 <span className="mt-3 text-xs font-bold text-velora-blue">
                   0{index + 1}
                 </span>
@@ -115,7 +168,7 @@ export function ProcessSection() {
                 <p className="mt-2 text-sm leading-relaxed text-text/60">
                   {description}
                 </p>
-              </li>
+              </motion.li>
             ))}
           </ol>
         </div>
