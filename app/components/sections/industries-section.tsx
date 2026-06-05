@@ -1,4 +1,6 @@
+"use client";
 import { SectionTag } from "../section-tag";
+import { motion } from "motion/react";
 
 const industries = [
   {
@@ -34,19 +36,47 @@ const industries = [
 export function IndustriesSection() {
   return (
     <section className="py-12 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8"
+      >
         <SectionTag>Industries We Serve</SectionTag>
         <h2 className="mt-2 text-2xl font-bold text-velora-navy sm:text-3xl lg:text-4xl">
           Trusted by Various Industries
         </h2>
 
         <ul className="mt-8 grid grid-cols-2 gap-6 sm:mt-12 sm:grid-cols-3 sm:gap-8 md:grid-cols-4 xl:grid-cols-7">
-          {industries.map(({ label, icon }) => (
-            <li
+          {industries.map(({ label, icon }, index) => (
+            <motion.li
               key={label}
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.07,
+              }}
               className="flex flex-col items-center gap-2 sm:gap-3"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-white text-velora-blue shadow-sm sm:h-14 sm:w-14">
+              <motion.div
+                whileHover={{
+                  scale: 1.08,
+                  rotate: 5,
+                  transition: {
+                    duration: 0.2,
+                  },
+                }}
+                className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-white text-velora-blue shadow-sm sm:h-14 sm:w-14"
+              >
                 <svg
                   className="h-5 w-5 sm:h-6 sm:w-6"
                   fill="none"
@@ -57,14 +87,14 @@ export function IndustriesSection() {
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
                 </svg>
-              </div>
+              </motion.div>
               <span className="max-w-[8rem] text-center text-xs font-semibold leading-snug text-text/70 sm:max-w-none sm:text-sm">
                 {label}
               </span>
-            </li>
+            </motion.li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </section>
   );
 }
