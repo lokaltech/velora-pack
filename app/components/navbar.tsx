@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
+import { QuotationLink } from "./quotation-trigger";
+
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#products", label: "Products" },
@@ -74,12 +76,9 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <Link
-              href="#quotation"
-              className="hidden rounded-md bg-velora-navy px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-velora-navy/90 md:inline-flex"
-            >
+            <QuotationLink className="hidden rounded-md bg-velora-navy px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-velora-navy/90 md:inline-flex">
               Request Quotation
-            </Link>
+            </QuotationLink>
             <motion.button
               whileTap={{
                 scale: 0.95,
@@ -186,13 +185,12 @@ export function Navbar() {
 
             <div className="mt-6 border-t border-border pt-6">
               <div className="flex flex-col gap-3">
-                <Link
-                  href="#quotation"
+                <QuotationLink
                   className="inline-flex h-11 items-center justify-center rounded-md bg-velora-navy text-sm font-semibold text-white"
                   onClick={closeMenu}
                 >
                   Request Quotation
-                </Link>
+                </QuotationLink>
 
                 <Link
                   href="#contact"

@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { QuotationLink } from "../quotation-trigger";
 
 const avatars = ["A", "B", "C", "D", "E"];
 
@@ -72,13 +73,13 @@ export function Hero() {
               transition={{ duration: 0.45 }}
               className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-stretch"
             >
-              <Link
+              <QuotationLink
                 href="#quotation"
                 className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-md bg-velora-navy px-5 text-sm font-semibold text-white transition-colors hover:bg-velora-navy/90 sm:flex-none sm:px-6"
               >
                 Request Quotation
                 <span aria-hidden>→</span>
-              </Link>
+              </QuotationLink>
               <Link
                 href="#contact"
                 className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-md border border-border bg-white px-5 text-sm font-semibold text-velora-navy transition-colors hover:bg-film-blue/40 sm:flex-none sm:px-6"

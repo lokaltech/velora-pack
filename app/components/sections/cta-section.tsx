@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
+
+import { QuotationLink } from "../quotation-trigger";
 
 export function CtaSection() {
   return (
@@ -71,13 +72,10 @@ export function CtaSection() {
                 duration: 0.2,
               }}
             >
-              <Link
-                href="#contact"
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-white px-6 text-sm font-semibold text-velora-navy transition-colors hover:bg-film-blue sm:w-auto"
-              >
+              <QuotationLink className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-white px-6 text-sm font-semibold text-velora-navy transition-colors hover:bg-film-blue sm:w-auto">
                 Request Quotation
                 <span aria-hidden>→</span>
-              </Link>
+              </QuotationLink>
             </motion.div>
 
             <motion.div
