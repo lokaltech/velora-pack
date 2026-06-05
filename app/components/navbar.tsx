@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 const navLinks = [
   { href: "#home", label: "Home" },
@@ -28,17 +29,21 @@ export function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-white/95 backdrop-blur-sm">
-        {/* <header
-        style={{
-          position: "sticky",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          background: "white",
+      <motion.header
+        initial={{
+          y: -20,
+          opacity: 0,
         }}
-      > */}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 0.4,
+          ease: "easeOut",
+        }}
+        className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-white/95 backdrop-blur-sm"
+      >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:h-[72px] sm:px-6 lg:px-8">
           <Link
             href="/"
@@ -75,7 +80,10 @@ export function Navbar() {
             >
               Request Quotation
             </Link>
-            <button
+            <motion.button
+              whileTap={{
+                scale: 0.95,
+              }}
               type="button"
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border text-text/70 lg:hidden"
               aria-expanded={menuOpen}
@@ -114,7 +122,7 @@ export function Navbar() {
                   />
                 </svg>
               )}
-            </button>
+            </motion.button>
           </div>
         </nav>
 
@@ -125,7 +133,7 @@ export function Navbar() {
         }`}
         aria-hidden={!menuOpen}
       > */}
-      </header>
+      </motion.header>
       <div
         id="mobile-nav"
         className={`fixed inset-0 top-16 z-[999] lg:hidden sm:top-[72px] ${
@@ -143,7 +151,20 @@ export function Navbar() {
         />
 
         {/* Drawer */}
-        <div
+        <motion.div
+          initial={{
+            x: "100%",
+          }}
+          animate={{
+            x: 0,
+          }}
+          exit={{
+            x: "100%",
+          }}
+          transition={{
+            duration: 0.25,
+            ease: "easeOut",
+          }}
           className={`absolute right-0 top-0 h-full w-full max-w-sm bg-white shadow-xl border-l border-border transition-transform duration-300 ease-out ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
@@ -183,7 +204,7 @@ export function Navbar() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );
